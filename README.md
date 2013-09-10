@@ -53,8 +53,7 @@ To register a new plugin provide a plugin name, default options, public methods 
 Now you can use your new plugin on any jQuery collection like so:
 
 ```javascript
-// Attach a new instance to the element
-// and run the `init` method
+// Attach a new instance and run the `init` method
 $('selector').myplugin({ options }); 
 ```
 
