@@ -5,6 +5,8 @@
  */
 (function($) {
 
+  var AP = Array.prototype;
+
   $.newPlugin = function(pluginName, defaults, methods, global) {
 
     function Plugin(element, options) {
@@ -21,7 +23,7 @@
 
     Plugin.prototype[pluginName] = function(method) {
       if (!method) return this._init();
-      try { return this[method].apply(this, [].slice.call(arguments, 1)); }
+      try { return this[method].apply(this, AP.slice.call(arguments, 1)); }
       catch(e) {}
     };
 
@@ -31,7 +33,7 @@
 
     $.fn[pluginName] = function() {
 
-      var args = Array.prototype.slice.call(arguments, 0)
+      var args = AP.slice.call(arguments)
         , method = (args[0] || '').split(':')
         , isGet = method[0] == 'get'
         , ret;
