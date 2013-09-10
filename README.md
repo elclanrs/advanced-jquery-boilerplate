@@ -1,6 +1,6 @@
 # Advanced jQuery Boilerplate
 
-Create scalable and re-usable jQuery plugins quickly.
+A jQuery plugin to create scalable jQUery plugins, fast!
 
 ## How To
 
