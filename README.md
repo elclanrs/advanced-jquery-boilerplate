@@ -2,6 +2,8 @@
 
 A jQuery plugin to create scalable jQuery plugins, fast!
 
+**Sample Plugin:** [jQuery Tabslide](https://github.com/elclanrs/jquery.tabslide)
+
 ## How To
 
 To register a new plugin provide a plugin name, default options, public methods and global methods (if any):
