@@ -50,22 +50,22 @@ To register a new plugin provide a plugin name, default options, public methods 
 
 ## Usage
 
-Now you can use your new plugin on any element like so:
+Now you can use your new plugin on any jQuery collection like so:
 
 ```javascript
 // Attach a new instance to the element
 // and run the `init` method
-$('element').myplugin({ options }); 
+$('selector').myplugin({ options }); 
 ```
 
-The plugin attaches an instance of itself to the element so after you initialize it you can call any method by calling the plugin again with the name of the method and its arguments:
+The plugin attaches an instance of itself to the element(s) so after you initialize it you can call any method by calling the plugin again with the name of the method and its arguments:
 
 ```javascript
-$('element').myplugin('method', arg1, arg2, ...);
+$('selector').myplugin('method', arg1, arg2, ...);
 ```
 
 All methods `return this` so everything can be chained by default. If you want to get the returned value of a method, prefix the call with `get:`:
 
 ```javascript
-$('element').myplugin('get:method', arg1, arg2, ...);  
+$('selector').myplugin('get:method', arg1, arg2, ...);  
 ```
