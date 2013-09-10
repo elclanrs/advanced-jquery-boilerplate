@@ -64,7 +64,7 @@ The plugin attaches an instance of itself to the element so after you initialize
 $('element').myplugin('method', arg1, arg2, ...);
 ```
 
-All methods `return this` by default so it's one thing less to remember. If you want to get the returned value, prefix the method call with `get:`:
+All methods `return this` by default; one less thing to remember. If you want to get the returned value, prefix the method call with `get:`:
 
 ```javascript
 $('element').myplugin('get:method', arg1, arg2, ...);  
