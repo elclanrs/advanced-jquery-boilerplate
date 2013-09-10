@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="advanced-jquery-boilerplate.js"></script>
+  <script>
+    (function($, win, doc, undefined) {
+
+      var pluginName, defaults, methods, global;
+
+      // The name of your plugin
+      pluginName = 'myplugin';
+
+      // Default options
+      defaults = {
+
+      };
+
+      // Public methods
+      methods = {
+
+        // Gets called when creating a new instance
+        // this.el is the element on which the plugin was called
+        // this.opts contains the options passed to the plugin
+        _init: function() {
+          this.$el = $(this.el);
+          console.log('Plugin initialized!');
+        },
+
+        foo: function(name) {
+          return 'Hello '+ name +'!';
+        }
+      };
+
+      // Global properties and methods get attached to `$`
+      // as opposed to `$.fn` so they can be extended from the outside
+      global = {
+
+      };
+
+      // Add the plugin to the jQuery namespace and set-up the boilerplate base
+      $.newPlugin(pluginName, defaults, methods, global);
+
+    }(jQuery, window, document));
+
+    $('body').myplugin(); //=> init plugin
+    console.log($('body').myplugin('get:foo', 'John')); //=> return value
+  </script>
+</body>
+</html>
