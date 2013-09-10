@@ -26,11 +26,11 @@ To register a new plugin provide a plugin name, default options, public methods 
     // this.el is the element on which the plugin was called
     // this.opts contains the options passed to the plugin
     _init: function() {
-      this.publicProp = 'Hello World';
+      this.$el = $(this.el);
     },
 
-    getPublicProp: function() {
-      return this.publicProp;
+    method: function() {
+
     }
   };
 
