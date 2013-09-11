@@ -68,3 +68,11 @@ All methods `return this` so everything can be chained by default. If you want t
 ```javascript
 $('selector').myplugin('get:method', arg1, arg2, ...);  
 ```
+
+You can access the current instance of the plugin with `data`:
+
+```javascript
+$instance = $('selector').data('myplugin');
+$instance.property;
+$instance.method();
+```
