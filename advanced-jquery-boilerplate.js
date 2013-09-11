@@ -34,7 +34,7 @@
     $.fn[pluginName] = function() {
 
       var args = AP.slice.call(arguments)
-        , method = (args[0] || '').split(':')
+        , method = typeof args[0] == 'string' && args[0].split(':')
         , isGet = method[0] == 'get'
         , ret;
 
