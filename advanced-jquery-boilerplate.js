@@ -50,9 +50,7 @@
         }
 
         // Init
-        if (opts) {
-          return $.data(this, pluginName, new Plugin(this, opts));
-        }
+        return $.data(this, pluginName, new Plugin(this, opts));
       });
 
       return isGet ? ret : this;
