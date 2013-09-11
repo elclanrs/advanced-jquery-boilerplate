@@ -22,7 +22,7 @@
     Plugin.prototype._init = $.noop;
 
     Plugin.prototype[pluginName] = function(method) {
-      if (!method) return this._init();
+      if (!method) return this;
       try { return this[method].apply(this, AP.slice.call(arguments, 1)); }
       catch(e) {}
     };
@@ -35,22 +35,24 @@
 
       var args = AP.slice.call(arguments)
         , method = typeof args[0] == 'string' && args[0].split(':')
+        , opts = typeof args[0] == 'object' && args[0]
+        , params = args.slice(1)
         , isGet = method[0] == 'get'
         , ret;
 
-      method = method[+isGet];
-
       this.each(function() {
 
-        var instance = $.data(this, 'plugin_'+ pluginName);
+        var instance = $.data(this, pluginName);
 
-        // Initialize plugin
-        if (!instance || typeof args[0] == 'object') {
-          return $.data(this, 'plugin_'+ pluginName, new Plugin(this, args[0]));
+        // Method
+        if (instance) {
+          return ret = instance[pluginName].apply(instance, [method[+isGet]].concat(params));
         }
 
-        // Save the returned value
-        return ret = instance[pluginName].apply(instance, [method].concat(args.slice(1)));
+        // Init
+        if (opts) {
+          return $.data(this, pluginName, new Plugin(this, opts));
+        }
       });
 
       return isGet ? ret : this;
